@@ -1,0 +1,72 @@
+
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=sankey-energy
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<!-- Uncomment this line if you want to dataTool extension
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+-->
+<!-- Uncomment this line if you want to use gl extension
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+-->
+<!-- Uncomment this line if you want to echarts-stat extension
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+-->
+<!-- Uncomment this line if you want to use map
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/china.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/world.js"></script>
+-->
+<!-- Uncomment these two lines if you want to use bmap extension
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+-->
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    myChart.showLoading();
+    var data = {
+        "nodes": [{"name": "Netherlands "}, {"name": "Germany"}, {"name": "South Africa"}, {"name": "South Korea"}, {"name": "Japan "}, {"name": "Portugal"}, {"name": "Russia"}, {"name": "Sweden"}, {"name": "GB "}, {"name": "Switzerland "}, {"name": "Canada"}, {"name": "India"}, {"name": "GB"}, {"name": "Norway "}, {"name": "United Kingdom"}, {"name": "United States"}, {"name": "Switzerland"}, {"name": "Spain "}, {"name": "Canada "}, {"name": "Estonia"}, {"name": "Ireland"}, {"name": "United Kingdom "}, {"name": "Singapore"}, {"name": "France "}, {"name": "Denmark"}, {"name": "Norway"}, {"name": "Finland"}, {"name": "Israel"}, {"name": "Australia"}, {"name": "Austria"}, {"name": "Belgium"}, {"name": "Japan"}, {"name": "Netherlands"}, {"name": "Australia "}, {"name": "India "}, {"name": "Sweden "}, {"name": "Finland "}, {"name": "Israel "}, {"name": "China (Mainland) "}, {"name": "Italy "}, {"name": "Estonia "}, {"name": "Italy"}, {"name": "United States "}, {"name": "France"}, {"name": "China (Mainland)"}, {"name": "Spain"}, {"name": "Denmark "}, {"name": "Ireland "}, {"name": "Hong Kong SAR"}, {"name": "Germany "}, {"name": "Brazil"}],
+        "links": [{"source":"Australia","target":"Australia ","value":30},{"source":"Australia","target":"Canada ","value":15},{"source":"Australia","target":"China (Mainland) ","value":24},{"source":"Australia","target":"Estonia ","value":11},{"source":"Australia","target":"Finland ","value":13},{"source":"Australia","target":"France ","value":12},{"source":"Australia","target":"Germany ","value":24},{"source":"Australia","target":"India ","value":14},{"source":"Australia","target":"Netherlands ","value":14},{"source":"Australia","target":"Sweden ","value":18},{"source":"Australia","target":"Switzerland ","value":24},{"source":"Australia","target":"United Kingdom ","value":48},{"source":"Australia","target":"United States ","value":66},{"source":"Austria","target":"India ","value":11},{"source":"Austria","target":"Ireland ","value":17},{"source":"Austria","target":"Spain ","value":14},{"source":"Austria","target":"United Kingdom ","value":11},{"source":"Austria","target":"United States ","value":31},{"source":"Belgium","target":"United Kingdom ","value":11},{"source":"Belgium","target":"United States ","value":13},{"source":"Brazil","target":"United States ","value":11},{"source":"Canada","target":"Canada ","value":52},{"source":"Canada","target":"China (Mainland) ","value":22},{"source":"Canada","target":"Denmark ","value":11},{"source":"Canada","target":"France ","value":17},{"source":"Canada","target":"Germany ","value":22},{"source":"Canada","target":"India ","value":17},{"source":"Canada","target":"Japan ","value":14},{"source":"Canada","target":"Spain ","value":11},{"source":"Canada","target":"Sweden ","value":13},{"source":"Canada","target":"Switzerland ","value":14},{"source":"Canada","target":"United Kingdom ","value":42},{"source":"Canada","target":"United States ","value":91},{"source":"China (Mainland)","target":"China (Mainland) ","value":89},{"source":"China (Mainland)","target":"Denmark ","value":14},{"source":"China (Mainland)","target":"France ","value":11},{"source":"China (Mainland)","target":"Germany ","value":15},{"source":"China (Mainland)","target":"India ","value":24},{"source":"China (Mainland)","target":"Japan ","value":12},{"source":"China (Mainland)","target":"Netherlands ","value":14},{"source":"China (Mainland)","target":"Sweden ","value":14},{"source":"China (Mainland)","target":"Switzerland ","value":14},{"source":"China (Mainland)","target":"United Kingdom ","value":36},{"source":"China (Mainland)","target":"United States ","value":85},{"source":"Denmark","target":"Denmark ","value":19},{"source":"Denmark","target":"Germany ","value":13},{"source":"Denmark","target":"Sweden ","value":20},{"source":"Denmark","target":"Switzerland ","value":12},{"source":"Denmark","target":"United Kingdom ","value":25},{"source":"Denmark","target":"United States ","value":38},{"source":"Estonia","target":"United Kingdom ","value":11},{"source":"Estonia","target":"United States ","value":13},{"source":"Finland","target":"Germany ","value":19},{"source":"Finland","target":"Netherlands ","value":11},{"source":"Finland","target":"Sweden ","value":18},{"source":"Finland","target":"Switzerland ","value":11},{"source":"Finland","target":"United Kingdom ","value":19},{"source":"Finland","target":"United States ","value":35},{"source":"France","target":"France ","value":42},{"source":"France","target":"Germany ","value":18},{"source":"France","target":"Japan ","value":11},{"source":"France","target":"Netherlands ","value":11},{"source":"France","target":"Spain ","value":11},{"source":"France","target":"Sweden ","value":13},{"source":"France","target":"Switzerland ","value":11},{"source":"France","target":"United Kingdom ","value":29},{"source":"France","target":"United States ","value":50},{"source":"GB","target":"GB ","value":11},{"source":"GB","target":"United Kingdom ","value":37},{"source":"GB","target":"United States ","value":18},{"source":"Germany","target":"Germany ","value":44},{"source":"Germany","target":"India ","value":20},{"source":"Germany","target":"Italy ","value":12},{"source":"Germany","target":"Japan ","value":12},{"source":"Germany","target":"Netherlands ","value":19},{"source":"Germany","target":"Norway ","value":13},{"source":"Germany","target":"Spain ","value":16},{"source":"Germany","target":"Sweden ","value":22},{"source":"Germany","target":"Switzerland ","value":32},{"source":"Germany","target":"United Kingdom ","value":44},{"source":"Germany","target":"United States ","value":86},{"source":"Hong Kong SAR","target":"United States ","value":12},{"source":"India","target":"India ","value":31},{"source":"India","target":"Ireland ","value":13},{"source":"India","target":"Israel ","value":11},{"source":"India","target":"Japan ","value":12},{"source":"India","target":"Spain ","value":17},{"source":"India","target":"Sweden ","value":16},{"source":"India","target":"Switzerland ","value":17},{"source":"India","target":"United Kingdom ","value":36},{"source":"India","target":"United States ","value":60},{"source":"Ireland","target":"Spain ","value":12},{"source":"Ireland","target":"United Kingdom ","value":16},{"source":"Ireland","target":"United States ","value":29},{"source":"Israel","target":"Israel ","value":26},{"source":"Israel","target":"Spain ","value":11},{"source":"Israel","target":"United States ","value":24},{"source":"Italy","target":"United Kingdom ","value":26},{"source":"Italy","target":"United States ","value":30},{"source":"Japan","target":"Japan ","value":26},{"source":"Japan","target":"United Kingdom ","value":20},{"source":"Japan","target":"United States ","value":45},{"source":"Netherlands","target":"Netherlands ","value":29},{"source":"Netherlands","target":"Switzerland ","value":15},{"source":"Netherlands","target":"United Kingdom ","value":27},{"source":"Netherlands","target":"United States ","value":40},{"source":"Norway","target":"United Kingdom ","value":12},{"source":"Norway","target":"United States ","value":21},{"source":"Portugal","target":"United Kingdom ","value":12},{"source":"Portugal","target":"United States ","value":17},{"source":"Russia","target":"United Kingdom ","value":12},{"source":"Russia","target":"United States ","value":25},{"source":"Singapore","target":"United States ","value":16},{"source":"South Africa","target":"United Kingdom ","value":11},{"source":"South Africa","target":"United States ","value":12},{"source":"South Korea","target":"United States ","value":19},{"source":"Spain","target":"United Kingdom ","value":24},{"source":"Spain","target":"United States ","value":38},{"source":"Sweden","target":"Sweden ","value":22},{"source":"Sweden","target":"Switzerland ","value":13},{"source":"Sweden","target":"United Kingdom ","value":38},{"source":"Sweden","target":"United States ","value":53},{"source":"Switzerland","target":"Switzerland ","value":25},{"source":"Switzerland","target":"United Kingdom ","value":37},{"source":"Switzerland","target":"United States ","value":52},{"source":"United Kingdom","target":"United Kingdom ","value":109},{"source":"United Kingdom","target":"United States ","value":152},{"source":"United States","target":"United States ","value":867}],
+        "title": 'country_biorxiv'
+    }
+    var option = {
+        title: {
+            text: data.title
+        },
+        tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove'
+        },
+        series: [
+            {
+                type: 'sankey',
+                data: data.nodes,
+                links: data.links,
+                emphasis: {
+                    focus: 'adjacency'
+                },
+                lineStyle: {
+                    color: 'gradient',
+                    curveness: 0.5
+                }
+            }
+        ]
+    };
+    myChart.hideLoading();
+    myChart.setOption(option);
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+</script>
+</body>
+</html>
+
